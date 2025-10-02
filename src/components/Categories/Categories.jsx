@@ -1,8 +1,8 @@
 import React from "react";
+import { NavLink } from "react-router";
 
 const Categories = ({ tree }) => {
-  console.log(tree);
-  return <li className="btn">{tree.category_name}</li>;
+  return <NavLink to={`/category/${tree.id}`} className="p-1 rounded-[5px] font-semibold hover:bg-gray-50 cursor-pointer">{tree.category_name}</NavLink>;
 };
 
 export default Categories;

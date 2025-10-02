@@ -3,15 +3,14 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Layout from "./components/Layout/Layout";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Cart from "./pages/Cart";
-import Contact from "./pages/Contact";
-
+import SameCategory from "./components/SameCategory/SameCategory";
+import Loading from "./components/Loading/Loading";
+import Home from './pages/Home'
 const router = createBrowserRouter([
   {
     path: "/",
     Component: Layout,
+    hydrateFallbackElement: <Loading></Loading>,
     loader: (()=> fetch('https://openapi.programming-hero.com/api/categories')),
     children: [
       {
@@ -19,21 +18,24 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
+        path: '/category/:id',
+        loader: (({params})=> fetch(`https://openapi.programming-hero.com/api/category/${params.id}`)
+        ),
+        Component: SameCategory,
+      },
+      {
         path: "/home",
-        element: <Home></Home>,
+        element: <Loading></Loading>,
       },
-      {
-        path: "/about",
-        element: <About></About>,
-      },
-      {
-        path: "/contact",
-        element: <Contact></Contact>,
-      },
-      {
-        path: "/cart",
-        element: <Cart></Cart>,
-      },
+      // {
+      //   path: "/about",
+      //   element: <About></About>,
+      // },
+      // {
+      //   path: "/contact",
+      //   element: <Contact></Contact>,
+      // },
+     
     ],
   },
 ]);

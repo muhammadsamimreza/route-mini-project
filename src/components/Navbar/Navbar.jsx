@@ -37,7 +37,7 @@ const Navbar = () => {
                 <NavLink to="/home">Home</NavLink>
                 <NavLink to="/about">About</NavLink>
                 <NavLink to="/contact">Contact</NavLink>
-                <NavLink to="/cart">Cart</NavLink>
+                {/* <NavLink to="/cart">Cart</NavLink> */}
               </ul>
             </div>
             <a className="btn btn-ghost text-xl">daisyUI</a>
@@ -47,7 +47,7 @@ const Navbar = () => {
               <li><NavLink to="/home">Home</NavLink></li>
               <li><NavLink to="/about">About</NavLink></li>
               <li><NavLink to="/contact">Contact</NavLink></li>
-              <li><NavLink to="/cart">Cart</NavLink></li>
+              {/* <li><NavLink to="/cart">Cart</NavLink></li> */}
             </ul>
           </div>
           <div className="navbar-end">
